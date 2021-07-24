@@ -40,3 +40,5 @@ This CLI was created with [Cookiecutter](https://github.com/audreyr/cookiecutter
 - `python.pythonPath` (`settings.json` file) is deprecated. More info [here](https://devblogs.microsoft.com/python/python-in-visual-studio-code-may-2020-release/#coming-next-moving-python-pythonpath-out-of-settings-json), [here](https://code.visualstudio.com/docs/python/environments#_manually-specify-an-interpreter), and [here](https://github.com/microsoft/vscode-python/issues/11015). Alternative ([source](https://github.com/microsoft/vscode-python/issues/12313#issuecomment-867932929)): `"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"`.
 - [`subprocess` module](https://docs.python.org/3.6/library/subprocess.html) (Python 3.6).
 - [`sys.platform` values](https://docs.python.org/3.6/library/sys.html#sys.platform).
+- `security find-generic-password -h`.
+- `/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -h` (more info [here](https://ss64.com/osx/airport.html)).
