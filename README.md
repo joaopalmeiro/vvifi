@@ -51,6 +51,9 @@ This CLI was created with [Cookiecutter](https://github.com/audreyr/cookiecutter
   - [User Input Prompts](https://click.palletsprojects.com/en/7.x/prompts/): Click supports input and confirmation prompts.
   - [Interactive User Prompts](https://github.com/pallets/click/issues/899) issue.
 - [PyInquirer](https://github.com/CITGuru/PyInquirer) and [inquirer](https://github.com/magmax/python-inquirer) packages.
+- Find the interface for the Wi-Fi network ([source](https://michaelsoolee.com/switch-wifi-macos-terminal/)): `networksetup -listallhardwareports`.
+- List [preferred Wi-Fi networks](https://support.apple.com/en-gb/guide/mac-help/mchlp1201/mac) ([source](https://osxdaily.com/2013/01/03/get-list-preferred-wifi-networks-command-line/)): `networksetup -listpreferredwirelessnetworks en0` (or `networksetup -listpreferredwirelessnetworks en1`). The wireless networks the computer has connected to are listed here.
+- [click-help-colors](https://github.com/click-contrib/click-help-colors) package.
 
 ### [python-string-utils](https://github.com/daveoncode/python-string-utils) implementation to remove indentation from multiline strings
 

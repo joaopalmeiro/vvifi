@@ -1,6 +1,7 @@
 import subprocess
-import sys
 from typing import Sequence, Union
+
+import click
 
 
 def run_single_command(command: Union[str, Sequence[str]]) -> str:
@@ -19,7 +20,12 @@ def run_single_command(command: Union[str, Sequence[str]]) -> str:
     return output.decode(encoding="utf-8")
 
 
-# Source: https://github.com/sdushantha/wifi-password/blob/1.1.1/wifi_password/wifi_password.py#L33  # noqa
-def print_error(message: str) -> None:
-    print(f"ERROR: {message}", file=sys.stderr)
-    sys.exit(1)
+# More info:
+# - https://github.com/sdushantha/wifi-password/blob/1.1.1/wifi_password/wifi_password.py#L33  # noqa
+# - https://click.palletsprojects.com/en/7.x/utils/#printing-to-stdout
+def print_error(message: str, ctx: click.Context) -> None:
+    # print(f"ERROR: {message}", file=sys.stderr)
+    click.echo(f"ERROR: {message}", err=True)
+
+    # sys.exit(1)
+    ctx.exit(1)
