@@ -32,6 +32,7 @@ Options:
 ## Tech Stack
 
 - [Click](https://click.palletsprojects.com/) (for the interface)
+- [python-string-utils](https://github.com/daveoncode/python-string-utils) (to remove multiline string indentation)
 
 ### Packaging and Development
 
