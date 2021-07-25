@@ -42,3 +42,27 @@ This CLI was created with [Cookiecutter](https://github.com/audreyr/cookiecutter
 - [`sys.platform` values](https://docs.python.org/3.6/library/sys.html#sys.platform).
 - `security find-generic-password -h`.
 - `/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -h` (more info [here](https://ss64.com/osx/airport.html)).
+- [Regular expression](https://github.com/python/cpython/blob/3.6/Lib/textwrap.py#L411) used by `textwrap.dedent()`.
+- Classifiers:
+  - `"Operating System :: MacOS"` + `"Operating System :: MacOS :: MacOS X"` ([macOS](https://en.wikipedia.org/wiki/MacOS)).
+  - [Mac OS 9](https://en.wikipedia.org/wiki/Mac_OS_9) was succeeded by Mac OS X.
+  - In the future, replace with `"Operating System :: OS Independent"`.
+
+### [python-string-utils](https://github.com/daveoncode/python-string-utils) implementation to remove indentation from multiline strings
+
+```python
+import re
+from typing import Pattern
+
+# The second `^` is to match a character not present in the list.
+MARGIN_RE: Pattern[str] = re.compile(r"^[^\S\r\n]+")
+
+
+def strip_margin(input_string: str) -> str:
+    # ...
+    line_separator = "\n"
+    lines = [MARGIN_RE.sub("", line) for line in input_string.split(line_separator)]
+    out = line_separator.join(lines)
+
+    return out
+```
