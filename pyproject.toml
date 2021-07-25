@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "wipy"
-version = "0.0.1"
+version = "0.1.0"
 description = "A Python CLI to quickly check your Wi-Fi network password."
 authors = ["João Palmeiro <joaommpalmeiro@gmail.com>"]
 license = "MIT"
