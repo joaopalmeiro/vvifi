@@ -1,4 +1,5 @@
 import sys
+from typing import Optional
 
 import click
 from string_utils import strip_margin
@@ -32,6 +33,31 @@ def print_networks(ctx: click.Context, param: click.Parameter, value: bool) -> N
     ctx.exit()
 
 
+def print_password(network: str, password: str) -> None:
+    click.secho(f"{NETWORK_SYMBOL} {network}\n", bold=True)
+    click.echo(password)
+
+
+def get_ssid_macos(network: Optional[str]) -> str:
+    if network:
+        return network
+
+    wifi_info = run_single_command([AIRPORT_PATH, "-I"])
+    wifi_info = strip_margin(wifi_info).rstrip()
+
+    # click.echo(repr(wifi_info))
+    # click.echo(wifi_info)
+
+    ssid = SSID_RE.search(wifi_info)
+
+    # click.echo(repr(ssid))
+    # click.echo(ssid)
+
+    name = ssid.group("name") if ssid else ""
+
+    return name
+
+
 @click.command()
 # More info:
 # - https://click.palletsprojects.com/en/7.x/options/#boolean-flags
@@ -42,44 +68,38 @@ def print_networks(ctx: click.Context, param: click.Parameter, value: bool) -> N
     callback=print_networks,
     expose_value=False,
     is_eager=True,
-    help="Show the names of saved Wi-Fi networks and exit.",
+    help="Show the names (SSIDs) of saved Wi-Fi networks and exit.",
+)
+@click.option(
+    "-n",
+    "--network",
+    type=str,
+    metavar="NAME",
+    help="The name (SSID) of a Wi-Fi network you have previously connected to.",
 )
 @click.version_option(version=__version__)
 @click.pass_context
-def main(ctx: click.Context):
-    """A Python CLI to quickly check your Wi-Fi network password."""
+def main(ctx: click.Context, network: Optional[str]) -> None:
+    """
+    A Python CLI to quickly check your Wi-Fi network password.
+    By default, the network you are connected to is considered.
+    """
     if sys.platform.startswith("darwin"):
         # macOS.
-        wifi_info = run_single_command([AIRPORT_PATH, "-I"])
-        wifi_info = strip_margin(wifi_info).rstrip()
+        name = get_ssid_macos(network)
 
-        # click.echo(repr(wifi_info))
-        # click.echo(wifi_info)
+        password = run_single_command(
+            [
+                "security",
+                "find-generic-password",
+                "-l",  # or `-a`
+                name,
+                "-D",
+                "AirPort network password",
+                "-w",
+            ]
+        ).rstrip()
 
-        ssid = SSID_RE.search(wifi_info)
-
-        # click.echo(repr(ssid))
-        # click.echo(ssid)
-
-        # More info:
-        # - https://github.com/sdushantha/wifi-password/blob/1.1.1/wifi_password/wifi_password.py#L78  # noqa
-        # - https://apple.stackexchange.com/questions/176119/how-to-access-the-wi-fi-password-through-terminal  # noqa
-        if ssid:
-            name = ssid.group("name")
-
-            password = run_single_command(
-                [
-                    "security",
-                    "find-generic-password",
-                    "-l",  # or `-a`
-                    name,
-                    "-D",
-                    "AirPort network password",
-                    "-w",
-                ]
-            ).rstrip()
-
-            click.secho(f"{NETWORK_SYMBOL} {name}\n", bold=True)
-            click.echo(password)
+        print_password(name, password)
     else:
         print_error(f"{repr(sys.platform)} is not supported.", ctx)
