@@ -47,6 +47,10 @@ This CLI was created with [Cookiecutter](https://github.com/audreyr/cookiecutter
   - `"Operating System :: MacOS"` + `"Operating System :: MacOS :: MacOS X"` ([macOS](https://en.wikipedia.org/wiki/MacOS)).
   - [Mac OS 9](https://en.wikipedia.org/wiki/Mac_OS_9) was succeeded by Mac OS X.
   - In the future, replace with `"Operating System :: OS Independent"`.
+- Click:
+  - [User Input Prompts](https://click.palletsprojects.com/en/7.x/prompts/): Click supports input and confirmation prompts.
+  - [Interactive User Prompts](https://github.com/pallets/click/issues/899) issue.
+- [PyInquirer](https://github.com/CITGuru/PyInquirer) and [inquirer](https://github.com/magmax/python-inquirer) packages.
 
 ### [python-string-utils](https://github.com/daveoncode/python-string-utils) implementation to remove indentation from multiline strings
 
