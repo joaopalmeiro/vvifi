@@ -11,6 +11,19 @@ A Python CLI to quickly check your Wi-Fi network password.
 - Siddharth Dushantha's [wifi-password](https://github.com/sdushantha/wifi-password) CLI
 - Ankit Jain's [wifiPassword](https://github.com/ankitjain28may/wifiPassword) CLI
 
+## Quickstart
+
+```text
+Usage: wipy [OPTIONS]
+
+  A Python CLI to quickly check your Wi-Fi network password.
+
+Options:
+  --networks  Show the names of saved Wi-Fi networks and exit.
+  --version   Show the version and exit.
+  --help      Show this message and exit.
+```
+
 ## Development
 
 - `poetry install`
