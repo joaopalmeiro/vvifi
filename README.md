@@ -16,12 +16,16 @@ A Python CLI to quickly check your Wi-Fi network password.
 ```text
 Usage: wipy [OPTIONS]
 
-  A Python CLI to quickly check your Wi-Fi network password.
+  A Python CLI to quickly check your Wi-Fi network password. By default, the
+  network you are connected to is considered.
 
 Options:
-  --networks  Show the names of saved Wi-Fi networks and exit.
-  --version   Show the version and exit.
-  --help      Show this message and exit.
+  --networks          Show the names (SSIDs) of saved Wi-Fi networks and exit.
+  -n, --network NAME  The name (SSID) of a Wi-Fi network you have previously
+                      connected to.
+
+  --version           Show the version and exit.
+  --help              Show this message and exit.
 ```
 
 ## Development
