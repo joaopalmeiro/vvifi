@@ -67,7 +67,7 @@ This CLI was created with [Cookiecutter](https://github.com/audreyr/cookiecutter
 - Find the interface for the Wi-Fi network ([source](https://michaelsoolee.com/switch-wifi-macos-terminal/)): `networksetup -listallhardwareports`.
 - List [preferred Wi-Fi networks](https://support.apple.com/en-gb/guide/mac-help/mchlp1201/mac) ([source](https://osxdaily.com/2013/01/03/get-list-preferred-wifi-networks-command-line/)): `networksetup -listpreferredwirelessnetworks en0` (or `networksetup -listpreferredwirelessnetworks en1`). The wireless networks the computer has connected to are listed here.
 - [click-help-colors](https://github.com/click-contrib/click-help-colors) package.
-- Datadog's [mkdocs-click])(https://github.com/DataDog/mkdocs-click) extension.
+- Datadog's [mkdocs-click](https://github.com/DataDog/mkdocs-click) extension.
 
 ### [python-string-utils](https://github.com/daveoncode/python-string-utils) implementation to remove indentation from multiline strings
 
