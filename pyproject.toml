@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "wipy"
+name = "vvifi"
 version = "0.1.0"
 description = "A Python CLI to quickly check your Wi-Fi network password."
 authors = ["João Palmeiro <joaommpalmeiro@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/joaopalmeiro/wipy"
-repository = "https://github.com/joaopalmeiro/wipy"
-keywords = ["wipy", "cli", "wifi", "password"]
+homepage = "https://github.com/joaopalmeiro/vvifi"
+repository = "https://github.com/joaopalmeiro/vvifi"
+keywords = ["vvifi", "cli", "wifi", "password"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Console",
@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/joaopalmeiro/wipy/issues"
+"Bug Tracker" = "https://github.com/joaopalmeiro/vvifi/issues"
 "Twitter" = "https://twitter.com/joaompalmeiro"
 
 [tool.poetry.dependencies]
@@ -48,4 +48,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-wipy = "wipy.cli:main"
+vvifi = "vvifi.cli:main"

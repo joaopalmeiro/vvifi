@@ -1,7 +1,7 @@
 .PHONY: all check type isort black lint bandit
 
 CMD:=poetry run
-PYMODULE:=wipy
+PYMODULE:=vvifi
 
 all: check type isort black lint bandit
 
